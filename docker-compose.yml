@@ -1,20 +1,29 @@
 version: "3.4"
 services:
 
-  # ara-api:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.ara-api
-  #   image: "ara-api"
-  #   ports:
-  #    - 8000:8000
-  #
+  ara-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.ara-api
+    image: "ara-api"
+    ports:
+     - 8000:8000
+
   ara-web:
     image: "ara-web"
     build:
       context: .
       dockerfile: Dockerfile.ara-web
     ports:
-     - 3000:3000
-    # depends_on:
-    #   - ara-api
+     - 3000:80
+    depends_on:
+      - ara-api
+
+  ansible-ara:
+    image: "ansible-ara"
+    build:
+      context: .
+      dockerfile: Dockerfile.ansible-ara
+    depends_on:
+      - ara-api
+      

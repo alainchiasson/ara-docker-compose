@@ -1,0 +1,8 @@
+# From python 3
+FROM python:3.6
+
+# Install ansible
+RUN pip install --pre ara
+RUN pip install ansible
+
+CMD ["ansible-playbook"]

@@ -1,0 +1,9 @@
+# From python 3
+FROM python:3.6
+
+# Install ansible
+RUN pip install --pre ara[server]
+RUN pip install ansible
+RUN ara-manage migrate
+
+CMD ["ara-manage" ,"runserver", "0.0.0.0:8000"]
