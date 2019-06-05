@@ -1,0 +1,12 @@
+#!/bin/bash -x
+#
+
+eval $(python3 -m ara.setup.env)
+
+ansible-galaxy install -r requirements.yml
+
+echo "============>>>>>"
+env
+echo "<<<<<============"
+
+ansible-playbook -i inventory.ini playbook.yml

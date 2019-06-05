@@ -24,6 +24,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.ansible-ara
+    volumes:
+      - ./env:/tmp/workdir
+    environment:
+      - ARA_API_CLIENT=http
+      - ARA_API_SERVER="http://ara-api:8000"
     depends_on:
       - ara-api
-      

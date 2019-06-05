@@ -1,0 +1,15 @@
+---
+- name: ansible ping
+  hosts:
+  - all
+  tasks:
+  - name: Ping The server
+    ping:
+
+# This is just so I can get a role to download and an error.
+  - name: Record custom data
+    ara_record:
+      key: "custom_key"
+      value: "custom Value"
+  roles:
+    - cloudalchemy.node-exporter
